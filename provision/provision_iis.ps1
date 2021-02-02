@@ -1,0 +1,1 @@
+Enable-WindowsOptionalFeature -online -featurename IIS-WebServerRole, IIS-Webserver, IIS-ManagementConsole, IIS-ApplicationDevelopment, IIS-NetFxExtensibility45, IIS-ASPNET45, IIS-ISAPIExtensions, IIS-ISAPIFilter, IIS-DefaultDocument, IIS-StaticContent, IIS-Performance, IIS-RequestFiltering
