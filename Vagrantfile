@@ -18,41 +18,43 @@ Vagrant.configure("2") do |config|
   config.vm.communicator = "winrm"
 
   config.vm.provision "shell", inline: "Set-MpPreference -DisableRealtimeMonitoring $true; Set-ItemProperty -Path 'HKLM:/SOFTWARE/Policies/Microsoft/Windows Defender' -Name DisableAntiSpyware -Value 1"
-  config.vm.provision "shell", inline: "choco install git -y"
+  config.vm.provision "shell", name: "git", inline: "choco install git --yes --no-progress --limitoutput"
   config.vm.provision :reload  
-  config.vm.provision "shell", inline: "choco install cake.portable -y"
+  config.vm.provision "shell", name: "cake", inline: "choco install cake.portable --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install nuget.commandline -y"
+  config.vm.provision "shell", name: "nuget", inline: "choco install nuget.commandline --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install netfx-4.7.1-devpack -y"
+  config.vm.provision "shell", name: "netfx-4.7.1-devpack", inline: "choco install netfx-4.7.1-devpack --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install netfx-4.8-devpack -y"
+  config.vm.provision "shell", name: "netfx-4.7.2-devpack", inline: "choco install netfx-4.7.2-devpack --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install dotnetcore-sdk -y"
+  config.vm.provision "shell", name: "netfx-4.8-devpack", inline: "choco install netfx-4.8-devpack --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install nodejs-lts --version=10.15.3 -y"
+  config.vm.provision "shell", name: "dotnetcore-sdk", inline: "choco install dotnetcore-sdk --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019community -y"
+  config.vm.provision "shell", name: "nodejs", inline: "choco install nodejs-lts --version=10.15.3 --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019buildtools -y"
+  config.vm.provision "shell", name: "visualstudio2019community", inline: "choco install visualstudio2019community --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-manageddesktop -y"
+  config.vm.provision "shell", name: "visualstudio2019buildtools", inline: "choco install visualstudio2019buildtools --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-netweb -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-manageddesktop", inline: "choco install visualstudio2019-workload-manageddesktop --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-node -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-netweb", inline: "choco install visualstudio2019-workload-netweb --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-data -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-node", inline: "choco install visualstudio2019-workload-node --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-visualstudioextension -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-data", inline: "choco install visualstudio2019-workload-data --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-netcoretools -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-visualstudioextension", inline: "choco install visualstudio2019-workload-visualstudioextension --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-netcorebuildtools -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-netcoretools", inline: "choco install visualstudio2019-workload-netcoretools --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-webbuildtools -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-netcorebuildtools", inline: "choco install visualstudio2019-workload-netcorebuildtools --yes --no-progress --limitoutput"
   config.vm.provision :reload
-  config.vm.provision "shell", inline: "choco install visualstudio2019-workload-manageddesktopbuildtools -y"
+  config.vm.provision "shell", name: "visualstudio2019-workload-webbuildtools", inline: "choco install visualstudio2019-workload-webbuildtools --yes --no-progress --limitoutput"
+  config.vm.provision :reload
+  config.vm.provision "shell", name: "visualstudio2019-workload-manageddesktopbuildtools", inline: "choco install visualstudio2019-workload-manageddesktopbuildtools --yes --no-progress --limitoutput"
   config.vm.provision :reload
 
   config.vm.provision "shell", inline: "Enable-WindowsOptionalFeature -online -featurename IIS-WebServerRole, IIS-Webserver, IIS-ManagementConsole, IIS-ApplicationDevelopment, IIS-NetFxExtensibility45, IIS-ASPNET45, IIS-ISAPIExtensions, IIS-ISAPIFilter, IIS-DefaultDocument, IIS-StaticContent, IIS-Performance, IIS-RequestFiltering"
