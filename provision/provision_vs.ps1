@@ -1,2 +1,0 @@
-Set-MpPreference -DisableRealtimeMonitoring $true; Set-ItemProperty -Path 'HKLM:/SOFTWARE/Policies/Microsoft/Windows Defender' -Name DisableAntiSpyware -Value 1
-choco install visualstudio2019community -y
