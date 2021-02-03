@@ -19,9 +19,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: "Set-MpPreference -DisableRealtimeMonitoring $true; Set-ItemProperty -Path 'HKLM:/SOFTWARE/Policies/Microsoft/Windows Defender' -Name DisableAntiSpyware -Value 1"
   config.vm.provision "shell", name: "git", inline: "choco install git --yes --no-progress --limitoutput"
-  config.vm.provision :reload  
-  config.vm.provision "shell", name: "cake", inline: "choco install cake.portable --yes --no-progress --limitoutput"
   config.vm.provision :reload
+  config.vm.provision "shell", name: "cake", inline: "choco install cake.portable --yes --no-progress --limitoutput"
   config.vm.provision "shell", name: "nuget", inline: "choco install nuget.commandline --yes --no-progress --limitoutput"
   config.vm.provision :reload
   config.vm.provision "shell", name: "netfx-4.7.1-devpack", inline: "choco install netfx-4.7.1-devpack --yes --no-progress --limitoutput"
@@ -43,7 +42,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", name: "visualstudio2019-workload-netweb", inline: "choco install visualstudio2019-workload-netweb --yes --no-progress --limitoutput"
   config.vm.provision :reload
   config.vm.provision "shell", name: "visualstudio2019-workload-node", inline: "choco install visualstudio2019-workload-node --yes --no-progress --limitoutput"
-  config.vm.provision :reload
   config.vm.provision "shell", name: "visualstudio2019-workload-data", inline: "choco install visualstudio2019-workload-data --yes --no-progress --limitoutput"
   config.vm.provision :reload
   config.vm.provision "shell", name: "visualstudio2019-workload-visualstudioextension", inline: "choco install visualstudio2019-workload-visualstudioextension --yes --no-progress --limitoutput"
